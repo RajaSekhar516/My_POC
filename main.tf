@@ -40,16 +40,28 @@ resource "aws_security_group" "jenkins-sg" {
     Name = var.security_group
   }
 }
-
+# create EC2 instances in multiple regions
 resource "aws_instance" "myFirstInstance" {
   ami           = var.ami_id
   key_name = var.key_name
   instance_type = var.instance_type
   vpc_security_group_ids = [aws_security_group.jenkins-sg.id]
+  provider = aws.us.east-1 # use the alias for the region
   tags= {
     Name = var.tag_name
   }
 }
+resource "aws_instance" "myFirstInstance1" {
+  ami           = var.ami_id
+  key_name = var.key_name
+  instance_type = var.instance_type
+  vpc_security_group_ids = [aws_security_group.jenkins-sg.id]
+  provider = aws.us.east-2 # use the alias for the region
+  tags= {
+    Name = var.tag_name
+  }
+}
+
 
 # Create Elastic IP address
 resource "aws_eip" "myFirstInstance" {
