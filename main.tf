@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_vpc" "main" {
-  cidr_block = "172.16.0.0/16"
+  cidr_block = "172.31.0.0/16"
   instance_tenancy = "default"
   tags = {
     Name = "main"
@@ -46,7 +46,7 @@ resource "aws_instance" "myFirstInstance" {
   ami           = var.ami_id
   key_name = var.key_name
   instance_type = var.instance_type
-  vpc_security_group_ids = [aws_security_group.jenkins-sg]
+  vpc_security_group_ids = vpc-0e0544f5b11630803
   tags= {
     Name = var.tag_name
   }
