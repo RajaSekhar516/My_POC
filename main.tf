@@ -1,5 +1,5 @@
 provider "aws" {
-  region = ${aws_region}
+  region = var.aws_region
 }
 resource "aws_vpc" "main" {
   cidr_block = "172.31.0.0/16"
