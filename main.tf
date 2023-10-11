@@ -9,6 +9,14 @@ provider "aws" {
   secret_key = "FQTWV1aF2B/ZrmXV1FgwCZQf/9edaCKwnu+b96qB"
   alias = "usa"
 }
+resource "aws_vpc" "main" {
+  cidr_block = "172.31.0.0/16"
+  instance_tenancy = "default"
+  tags = {
+    Name = "main"
+  }
+}
+
 #Create security group with firewall rules
 resource "aws_security_group" "jenkins-sg" {
   name        = security_group
@@ -45,7 +53,7 @@ resource "aws_instance" "Verginaia-aserver" {
   ami           = "ami-067d1e60475437da2"
   key_name = "raja"
   instance_type = "t2.micro"
-  vpc_security_group_ids = [aws_security_group.jenkins-sg.id]
+  vpc_security_group_ids = 
   tags= {
     Name = "Verginaia-aserver"
   }
