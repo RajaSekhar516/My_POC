@@ -8,9 +8,9 @@ terraform {
 }
 terraform {
   backend "s3" {
-    bucket = "mypoc13"
+    bucket = "mypoc12"
     key = "main"
     region = "us-east-2"
-    dynamodb_table = "my-tables"
+    dynamodb_table = "my-table"
   }
 }
