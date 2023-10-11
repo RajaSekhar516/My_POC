@@ -14,6 +14,7 @@ resource "aws_instance" "Verginaia-aserver" {
   ami           = "ami-067d1e60475437da2"
   key_name = "raja"
   instance_type = "t2.micro"
+  vpc_security_group_ids = [aws_security_group.jenkins-sg.id]
   tags= {
     Name = "Verginaia-aserver"
   }
@@ -22,6 +23,7 @@ resource "aws_instance" "ohio-server" {
   ami           = "ami-036f5574583e16426"
   key_name = "raja"
   instance_type = "t2.micro"
+  vpc_security_group_ids = [aws_security_group.jenkins-sg.id]
   provider     = aws.usa
   tags= {
     Name = "ohio-server"
