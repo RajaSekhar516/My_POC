@@ -1,12 +1,12 @@
 provider "aws" {
   region      = "us-east-1"
   access_key  = "AKIAY5HZIULKXVW6RVXE"
-  secreat_key = "FQTWV1aF2B/ZrmXV1FgwCZQf/9edaCKwnu+b96qB"
+  secret_key = "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"
 }
 provider "aws" {
   region =  "us-east-2"
   access_key  = "AKIAY5HZIULKXVW6RVXE"
-  secreat_key = "FQTWV1aF2B/ZrmXV1FgwCZQf/9edaCKwnu+b96qB"
+  secret_key = "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"
   alias = "usa"
 }
 # create EC2 instances in multiple regions
