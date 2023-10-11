@@ -11,7 +11,7 @@ provider "aws" {
 }
 #Create security group with firewall rules
 resource "aws_security_group" "jenkins-sg" {
-  name        = var.security_group
+  name        = security_group
   description = "security group for Ec2 instance"
 
   ingress {
@@ -37,7 +37,7 @@ resource "aws_security_group" "jenkins-sg" {
   }
 
   tags= {
-    Name = var.security_group
+    Name = security_group
   }
 }
 # create EC2 instances in multiple regions
