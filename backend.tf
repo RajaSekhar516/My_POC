@@ -6,11 +6,4 @@ terraform {
     dynamodb_table = "my-table"
   }
 }
-terraform {
-  backend "s3" {
-    bucket = "mypoc12"
-    key = "main"
-    region = "us-east-2"
-    dynamodb_table = "my-table"
-  }
-}
+
