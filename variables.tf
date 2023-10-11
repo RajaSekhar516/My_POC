@@ -1,11 +1,3 @@
-variable "aws_region" {
-       description = "The AWS region to create things in." 
-       region     = "us-east-1" 
-}
-variable "aws_region2" {
-       description = "The AWS region to create things in." 
-       region     = "us-east-2" 
-}
 
 variable "key_name" { 
     description = " SSH keys to connect to ec2 instance" 
@@ -26,15 +18,7 @@ variable "tag_name" {
     description = "Tag Name of for Ec2 instance" 
     default     = "my-ec2-instance" 
 } 
-variable "ami_id" { 
-    description = "AMI for Ubuntu Ec2 instance" 
-    default     = "ami-0ee23bfc74a881de5" 
-}
-variable "ami_id1" { 
-    description = "AMI for Ubuntu Ec2 instance" 
-    default     = "ami-036f5574583e16426
-" 
-}
+
 variable "versioning" {
     type        = bool
     description = "(Optional) A state of versioning."
