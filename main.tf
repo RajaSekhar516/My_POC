@@ -1,6 +1,9 @@
 provider "aws" {
   region = var.aws_region
 }
+provider "aws" {
+  region = var.aws_region2
+}
 resource "aws_vpc" "main" {
   cidr_block = "172.31.0.0/16"
   instance_tenancy = "default"
@@ -51,8 +54,8 @@ resource "aws_instance" "myFirstInstance" {
     Name = var.tag_name
   }
 }
-resource "aws_instance" "myFirstInstance1" {
-  ami           = var.ami_id
+resource "aws_instance" "myFirstInstance" {
+  ami           = var.ami_id1
   key_name = var.key_name
   instance_type = var.instance_type
   vpc_security_group_ids = [aws_security_group.jenkins-sg.id]
