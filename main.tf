@@ -18,7 +18,7 @@ resource "aws_vpc" "main" {
 }
 
 #Create security group with firewall rules
-resource "aws_security_group" "jenkins-sg" {
+resource "aws_security_group" "jenkins-sgs" {
   name        = var.security_group
   description = "security group for Ec2 instance"
 
@@ -53,7 +53,7 @@ resource "aws_instance" "Verginaia-aserver" {
   ami           = "ami-067d1e60475437da2"
   key_name = "raja"
   instance_type = "t2.micro"
-  vpc_security_group_ids = [aws_security_group.jenkins-sg.id]
+  vpc_security_group_ids = [aws_security_group.jenkins-sgs.id]
   tags= {
     Name = "Verginaia-aserver"
   }
@@ -62,9 +62,17 @@ resource "aws_instance" "ohio-server" {
   ami           = "ami-036f5574583e16426"
   key_name = "raja"
   instance_type = "t2.micro"
-  vpc_security_group_ids = [aws_security_group.jenkins-sg.id]
+  vpc_security_group_ids = [aws_security_group.jenkins-sgs.id]
   provider     = aws.usa
   tags= {
     Name = "ohio-server"
+  }
+}
+# Create Elastic IP address
+resource "aws_eip" "Verginaia-aserver" {
+  vpc      = true
+  instance = aws_instance.Verginaia-aserver.id
+tags= {
+    Name = "my_elastic_ip"
   }
 }
