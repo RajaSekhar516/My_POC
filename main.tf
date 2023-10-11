@@ -9,13 +9,6 @@ provider "aws" {
   secret_key = "FQTWV1aF2B/ZrmXV1FgwCZQf/9edaCKwnu+b96qB"
   alias = "usa"
 }
-resource "aws_vpc" "main" {
-  cidr_block = "172.31.0.0/16"
-  instance_tenancy = "default"
-  tags = {
-    Name = "main"
-  }
-}
 
 #Create security group with firewall rules
 resource "aws_security_group" "jenkins-sg" {
